@@ -1,0 +1,29 @@
+{
+    "tasks": [
+        {
+            "label": "Rerun Serve",
+            "type": "shell",
+            "command": "/usr/local/bin/rerun --serve-web --web-viewer-port 9090 --ws-server-port 9877",
+            "dependsOn": [
+                "Rerun Browser"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Rerun Browser",
+            "command": "${input:openSimpleBrowserRerun}",
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "openSimpleBrowserRerun",
+            "type": "command",
+            "command": "simpleBrowser.show",
+            "args": [
+                "http://localhost:9090?url=ws://localhost:9877"
+            ]
+        }
+    ],
+    "version": "2.0.0"
+}
